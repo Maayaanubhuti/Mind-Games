@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chess Game – Pulse</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/chess.js"></script>
+  <script src="js/chessboard.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>♟️ Chess Game – Play vs Computer</h1>
+    <div class="controls">
+      <button onclick="startGame()">Restart</button>
+      <button onclick="undoMove()">Undo</button>
+      <button onclick="flipBoard()">Flip Board</button>
+      <select id="themeSelector" onchange="changeTheme(this.value)">
+        <option value="purple">#7846e4 Mode</option>
+        <option value="white">White Mode</option>
+        <option value="dark">Dark Mode</option>
+      </select>
+    </div>
+    <div id="board" class="board"></div>
+    <div class="status" id="status"></div>
+  </div>
+  <script src="js/stockfish.wasm.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
