@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chess Game – Pulse</title>
   <link rel="stylesheet" href="css/style.css" />
-  <script src="js/chess.js"></script>
-  <script src="js/chessboard.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chessboardjs@1.0.0/css/chessboard-1.0.0.min.css" />
 </head>
 <body>
   <div class="container">
@@ -24,6 +23,8 @@
     <div id="board" class="board"></div>
     <div class="status" id="status"></div>
   </div>
+  <script src="js/chess.js"></script>
+  <script src="js/chessboard.js"></script>
   <script src="js/stockfish.wasm.js"></script>
   <script src="js/main.js"></script>
 </body>
