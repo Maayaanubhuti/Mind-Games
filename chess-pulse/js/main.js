@@ -10,7 +10,6 @@ function onDragStart(source, piece, position, orientation) {
 function makeBestMove() {
   stockfish.postMessage("position fen " + game.fen());
   stockfish.postMessage("go depth 15");
-
   stockfish.onmessage = function (e) {
     if (typeof e.data === "string" && e.data.startsWith("bestmove")) {
       const move = e.data.split(" ")[1];
@@ -22,12 +21,7 @@ function makeBestMove() {
 }
 
 function onDrop(source, target) {
-  let move = game.move({
-    from: source,
-    to: target,
-    promotion: "q"
-  });
-
+  let move = game.move({ from: source, to: target, promotion: "q" });
   if (move === null) return "snapback";
   board.position(game.fen());
   updateStatus();
@@ -40,15 +34,9 @@ function onSnapEnd() {
 
 function updateStatus() {
   let status = "";
-
-  if (game.in_checkmate()) {
-    status = "Checkmate! Game over.";
-  } else if (game.in_draw()) {
-    status = "Draw!";
-  } else {
-    status = "Your move";
-  }
-
+  if (game.in_checkmate()) status = "Checkmate! Game over.";
+  else if (game.in_draw()) status = "Draw!";
+  else status = "Your move";
   document.getElementById("status").innerText = status;
 }
 
@@ -59,8 +47,7 @@ function startGame() {
 }
 
 function undoMove() {
-  game.undo();
-  game.undo();
+  game.undo(); game.undo();
   board.position(game.fen());
   updateStatus();
 }
